@@ -22,6 +22,10 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         self.tableView.refreshControl = myRefreshControl
+        
+        // Create estimated row height and automatic dimension for the table view
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
     }
     
     // Make tweet show up in home feed
@@ -107,6 +111,12 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+        // Set favorite tweet and represent it as a boolean
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        
+        // Pass in tweetId
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         
         return cell
     }
