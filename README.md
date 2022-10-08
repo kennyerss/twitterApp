@@ -23,8 +23,7 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src="https://media.giphy.com/media/0YTvKhpXvpHJnBDeMr/giphy.gif" width=250><br>
-
+<img src="https://media.giphy.com/media/58kBOL4GwH3w2cMepK/giphy.gif" width=250><br>
 
 # Project 3 - *Twit*
 
