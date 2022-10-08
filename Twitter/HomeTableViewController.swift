@@ -20,11 +20,16 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweets()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
-        tableView.refreshControl = myRefreshControl
+        self.tableView.refreshControl = myRefreshControl
     }
-
+    
+    // Make tweet show up in home feed
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
+    }
+    
     // Pull our tweets
     @objc func loadTweets() {
         

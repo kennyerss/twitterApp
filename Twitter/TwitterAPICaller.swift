@@ -64,4 +64,17 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
         })
     }
     
+    // Create function for posting tweets
+    func postTweet(tweetString: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        // url from Twitter API for posting tweets
+        let url = "https://api.twitter.com/1.1/statuses/update.json"
+        
+        TwitterAPICaller.client?.post(url, parameters: ["status": tweetString], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+        
+    }
+    
 }
